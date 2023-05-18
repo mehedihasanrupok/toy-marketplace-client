@@ -6,7 +6,7 @@ import './Header.css'
 const Header = () => {
 
     return (
-        <div className='flex justify-between font-bold items-center'>
+        <div className='flex justify-between font-bold items-center bg-red-300'>
             <div className='p-3'>
                 <img className='my-logo' src={logo} alt="" />
                 <h3 className='text-orange-500 italic font-bold text-3xl'>Baby Toy</h3>
@@ -15,7 +15,7 @@ const Header = () => {
                 <Link to='/'>Home</Link>
                 <Link>My Toys</Link>
                 <Link>All Toys</Link>
-                <Link>Blogs</Link>
+                <Link to='/blogs'>Blogs</Link>
             </div>
             <div className='p-4 justify-around space-x-2.5'>
                 <Link>Login</Link>
