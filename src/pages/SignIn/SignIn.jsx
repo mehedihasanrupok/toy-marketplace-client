@@ -6,7 +6,7 @@ import { AuthContext } from '../../providers/AuthProvider';
 
 const SignIn = () => {
 
-    const { createUser } = useContext(AuthContext);
+    const {user, createUser, updateNamePhoto } = useContext(AuthContext);
     const [error, setError] = useState('');
     const [ok, setOk] = useState('');
     
@@ -21,6 +21,11 @@ const SignIn = () => {
         const image = form.image.value;
         console.log(name, email, password, image);
 
+        // res.user
+        //   ?.updateProfile({
+        //     displayName: name,
+        //   })
+
         setError('');
         setOk('');
         if (password.length < 6) {
@@ -34,8 +39,9 @@ const SignIn = () => {
                 console.log(user);
                 setOk('User Account Successfully Open');
                 form.reset('');
-                updateUser(user, {
-                    photoURL: "image",
+                result.user?.updateNamePhoto({
+                    displayName:name,
+                    photoURL: image,
                 })
             })
             .then(error =>{
