@@ -18,7 +18,7 @@ const Header = () => {
                 <Link to='/blogs'>Blogs</Link>
             </div>
             <div className='p-4 justify-around space-x-2.5'>
-                <Link>Login</Link>
+                <Link to='/login'>Login</Link>
                 <button>MyPicture</button>
             </div>
         </div>

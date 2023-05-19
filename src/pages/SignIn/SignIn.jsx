@@ -2,12 +2,14 @@ import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './SignIn.css'
 import { AuthContext } from '../../providers/AuthProvider';
+// import { AuthContext } from '../../providers/AuthProvider';
 
 const SignIn = () => {
 
+    const { createUser } = useContext(AuthContext);
     const [error, setError] = useState('');
     const [ok, setOk] = useState('');
-    const { user, createUser, updateUser } = useContext(AuthContext);
+    
 
     const handleSignUp = event => {
         event.preventDefault();
