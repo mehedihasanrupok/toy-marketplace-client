@@ -23,13 +23,13 @@ const Header = () => {
             <div className='p-4 space-x-5 items-center'>
                 <Link to='/'>Home</Link>
                 {user && <Link to='/mytoy'>My Toys</Link>}
-                {user && <Link to='addtoy'>Add Toys</Link>}
+                {user && <Link to='/addtoy'>Add Toys</Link>}
                 <Link to='/blogs'>Blogs</Link>
                 <Link to='/'>All Toy</Link>
             </div>
-            <div className='p-4 justify-around space-x-2.5'>
+            <div className='p-4 flex justify-around space-x-2.5'>
                 {user?.email ? <>
-                    <button>My Image</button>
+                    <button className='w-10 h-10 rounded'><img title={user.displayName} src={user?.photoURL} alt="" /></button>
                     <li><button onClick={handleLogOut}>Log out</button></li>
                 </> :
                     <li><Link to='/login'>Login</Link></li>

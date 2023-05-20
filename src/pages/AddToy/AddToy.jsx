@@ -19,32 +19,34 @@ const AddToy = () => {
         const quantity = form.quantity.value;
         const subCategory = form.subCategory.value;
         const details = form.details.value;
-        const order = {
-           customerName: name,
+        const toy = {
+           toyName: name,
+           sellerName: seller,
            email,
-           img: img,
-           date,
-           service: title,
-           service_id:_id,
-           price : price
+           img: photo,
+           rating: rating,
+           quantity: quantity,
+           subCategory:subCategory,
+           details: details,
+           price: price
         }
-        console.log(order);
+        console.log(toy);
 
-        // fetch('http://localhost:5000/bookings',{
-        //    method: 'POST',
-        //    headers:{
-        //        'content-type':'application/json'
-        //    },
-        //    body: JSON.stringify(order)
-        // })
-        // .then( res => res.json())
-        // .then(data =>{
-        //    console.log(data);
-        //    if(data.insertedId){
-        //        alert('Service Booked Successfully');
-        //        form.reset();
-        //    }
-        // })
+        fetch('http://localhost:5000/addToy',{
+           method: 'POST',
+           headers:{
+               'content-type':'application/json'
+           },
+           body: JSON.stringify(toy)
+        })
+        .then( res => res.json())
+        .then(data =>{
+           console.log(data);
+           if(data.insertedId){
+               alert('Service Booked Successfully');
+               form.reset();
+           }
+        })
    }
 
 
@@ -111,12 +113,9 @@ const AddToy = () => {
                     </div>
                 </div>
                 <div className="form-control mt-6">
-                    <input className="btn btn-primary btn-block" type="submit" value="Order Confirm" />
+                    <input className="btn btn-primary btn-block mx-auto" type="submit" value="Submit Toy" />
                 </div>
             </form>
-            {/* <div className="card-body">
-                
-            </div> */}
         </div>
     );
 };

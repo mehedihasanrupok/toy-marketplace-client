@@ -6,7 +6,7 @@ import { AuthContext } from '../../providers/AuthProvider';
 
 const SignIn = () => {
 
-    const {user, createUser, updateNamePhoto } = useContext(AuthContext);
+    const {user, createUser, updateUserData,logOut } = useContext(AuthContext);
     const [error, setError] = useState('');
     const [ok, setOk] = useState('');
     
@@ -18,8 +18,8 @@ const SignIn = () => {
         const email = form.email.value;
         const name = form.name.value;
         const password = form.password.value;
-        const image = form.image.value;
-        console.log(name, email, password, image);
+        const photo = form.photo.value;
+        console.log(name, email, password, photo);
 
         // res.user
         //   ?.updateProfile({
@@ -39,10 +39,14 @@ const SignIn = () => {
                 console.log(user);
                 setOk('User Account Successfully Open');
                 form.reset('');
-                result.user?.updateNamePhoto({
-                    displayName:name,
-                    photoURL: image,
+                updateUserData(result.user, name, photo)
+                .then(() => {
+                    console.log('User name and photo updated');
                 })
+                .catch(error => {
+                    setError(error.message);
+                });
+                logOut();
             })
             .then(error =>{
                 console.log(error);
@@ -87,7 +91,7 @@ const SignIn = () => {
                     </div>
                     <div className="form-control">
                         <label htmlFor="confirm">Image Url</label>
-                        <input type="text" name="image" id="" required />
+                        <input type="text" name="photo" id="" required />
                     </div>
                     <input className='btn-submit' type="submit" value="Register" />
                 </form>
