@@ -40,7 +40,7 @@ const SignIn = () => {
                 console.log(user);
                 setOk('User Account Successfully Open');
                 Swal.fire({
-                    position: 'top-end',
+                    position: 'top-center',
                     icon: 'success',
                     title: 'Account Open Successfully',
                     showConfirmButton: false,

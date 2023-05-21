@@ -42,7 +42,7 @@ const Login = () => {
                 form.reset();
                 navigate(from, { replace: true });
                 Swal.fire({
-                    position: 'top-end',
+                    position: 'top-center',
                     icon: 'success',
                     title: 'Log in successfully',
                     showConfirmButton: false,

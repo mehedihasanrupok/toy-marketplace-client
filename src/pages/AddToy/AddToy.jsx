@@ -45,7 +45,7 @@ const AddToy = () => {
            console.log(data);
            if(data.insertedId){
             Swal.fire({
-                position: 'top-end',
+                position: 'top-center',
                 icon: 'success',
                 title: 'Data Insertion Success',
                 showConfirmButton: false,
