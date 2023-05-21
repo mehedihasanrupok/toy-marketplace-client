@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import { BsGoogle } from "react-icons/bs";
+import Swal from 'sweetalert2';
 
 const Login = () => {
     const [show, setShow] = useState(false);
@@ -40,6 +41,13 @@ const Login = () => {
                 console.log(loggedUser);
                 form.reset();
                 navigate(from, { replace: true });
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Log in successfully',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
             })
             .catch(error => {
                 console.log(error);

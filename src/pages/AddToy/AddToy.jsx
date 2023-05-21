@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
+import Swal from 'sweetalert2';
 
 const AddToy = () => {
     const {user} = useContext(AuthContext);
@@ -43,7 +44,13 @@ const AddToy = () => {
         .then(data =>{
            console.log(data);
            if(data.insertedId){
-               alert('Service Booked Successfully');
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Data Insertion Success',
+                showConfirmButton: false,
+                timer: 1500
+              })
                form.reset();
            }
         })
