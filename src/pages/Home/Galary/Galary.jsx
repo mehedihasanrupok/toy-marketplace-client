@@ -14,7 +14,7 @@ const Galary = () => {
             <h2 className='text-7xl font-bold text-black text-center mb-4'>Photo Gallery</h2>
             <div className="carousel w-full h-[600px] mb-8">
                 <div id="slide1" className="carousel-item relative w-full">
-                    <img src={img} className="w-full" />
+                    <img src={img3} className="w-full" />
                     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                         <a href="#slide4" className="btn btn-circle">❮</a>
                         <a href="#slide2" className="btn btn-circle">❯</a>
@@ -35,7 +35,7 @@ const Galary = () => {
                     </div>
                 </div>
                 <div id="slide4" className="carousel-item relative w-full">
-                    <img src={img3} className="w-full" />
+                    <img src={img} className="w-full" />
                     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                         <a href="#slide3" className="btn btn-circle">❮</a>
                         <a href="#slide5" className="btn btn-circle">❯</a>

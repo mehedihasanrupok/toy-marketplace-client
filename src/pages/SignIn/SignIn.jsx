@@ -65,7 +65,7 @@ const SignIn = () => {
             })
             .then(error =>{
                         console.log(error);
-                    setError(error.message);
+                        setError(error.message);
             })
 
         // createUser(email, password)
