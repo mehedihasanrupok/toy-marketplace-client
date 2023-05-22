@@ -1,17 +1,24 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import Swal from 'sweetalert2';
+import { useLocation } from 'react-router-dom';
 
 const AddToy = () => {
-    const {user} = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
+    const location = useLocation();
+
+    // Update the document title based on the current location
+    useEffect(() => {
+        document.title = `BabyToy | ${location.pathname === '/addtoy' ? 'Add Toy' : ''}`;
+    }, [location]);
 
 
-    const handleAddToy = event =>{
+    const handleAddToy = event => {
         event.preventDefault();
 
         const form = event.target;
 
-        const  name = form.name.value;
+        const name = form.name.value;
         const seller = form.seller.value;
         const email = user?.email;
         const photo = form.photo.value;
@@ -21,40 +28,40 @@ const AddToy = () => {
         const subCategory = form.subCategory.value;
         const details = form.details.value;
         const toy = {
-           toyName: name,
-           sellerName: seller,
-           email,
-           img: photo,
-           rating: rating,
-           quantity: quantity,
-           subCategory:subCategory,
-           details: details,
-           price: price
+            toyName: name,
+            sellerName: seller,
+            email,
+            img: photo,
+            rating: rating,
+            quantity: quantity,
+            subCategory: subCategory,
+            details: details,
+            price: price
         }
         console.log(toy);
 
-        fetch('http://localhost:5000/addToy',{
-           method: 'POST',
-           headers:{
-               'content-type':'application/json'
-           },
-           body: JSON.stringify(toy)
+        fetch('http://localhost:5000/addToy', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(toy)
         })
-        .then( res => res.json())
-        .then(data =>{
-           console.log(data);
-           if(data.insertedId){
-            Swal.fire({
-                position: 'top-center',
-                icon: 'success',
-                title: 'Toy Added Successfully',
-                showConfirmButton: false,
-                timer: 1500
-              })
-               form.reset();
-           }
-        })
-   }
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    Swal.fire({
+                        position: 'top-center',
+                        icon: 'success',
+                        title: 'Toy Added Successfully',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                    form.reset();
+                }
+            })
+    }
 
 
 

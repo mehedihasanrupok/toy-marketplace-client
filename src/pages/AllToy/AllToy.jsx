@@ -1,10 +1,18 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import AToy from './AToy';
+import { useLocation } from 'react-router-dom';
 
 const AllToy = () => {
     const { user } = useContext(AuthContext);
     const [allToys, setAllToys] = useState([]);
+
+    const location = useLocation();
+
+    // Update the document title based on the current location
+    useEffect(() => {
+        document.title = `BabyToy | ${location.pathname === '/allToy' ? 'All Toy' : ''}`;
+    }, [location]);
 
 
     const url = `http://localhost:5000/addToy`;

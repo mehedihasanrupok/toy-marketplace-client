@@ -1,6 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const Blogs = () => {
+
+    const location = useLocation();
+
+    // Update the document title based on the current location
+    useEffect(() => {
+        document.title = `BabyToy | ${location.pathname === '/blogs' ? 'Blog' : ''}`;
+    }, [location]);
     return (
         <div className='mt-5 mb-5'>
             <div className='flex justify-around'>

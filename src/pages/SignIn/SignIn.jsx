@@ -1,11 +1,18 @@
-import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import './SignIn.css'
 import { AuthContext } from '../../providers/AuthProvider';
 import Swal from 'sweetalert2';
 // import { AuthContext } from '../../providers/AuthProvider';
 
 const SignIn = () => {
+
+    const location = useLocation();
+
+    // Update the document title based on the current location
+    useEffect(() => {
+        document.title = `BabyToy | ${location.pathname === '/signup' ? 'Sign Up' : ''}`;
+    }, [location]);
 
     const { user, createUser, updateUserData, logOut } = useContext(AuthContext);
     const [error, setError] = useState('');

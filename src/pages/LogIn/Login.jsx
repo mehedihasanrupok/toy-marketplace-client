@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import { BsGoogle } from "react-icons/bs";
@@ -11,6 +11,10 @@ const Login = () => {
     const location = useLocation();
 
     const from = location.state?.from?.pathname || '/';
+
+    useEffect(() => {
+        document.title = `BabyToy | ${location.pathname === '/login' ? 'Login' : ''}`;
+    }, [location]);
 
 
     const handleGoogle =()=>{
@@ -74,7 +78,7 @@ const Login = () => {
             </form>
             <p className='little'><small>Don't have an account? <Link to='/signup' className='little'>Create New Account</Link> </small></p>
             <hr />
-            <button onClick={handleGoogle} className='media'><BsGoogle className='image1' /> Log in With Google</button>
+            <button onClick={handleGoogle} className='media btn btn-block mr-3 pr-4'><BsGoogle className='image1' /> Log in With Google</button>
         </div>
     );
 };

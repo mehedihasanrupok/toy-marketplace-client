@@ -2,11 +2,19 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import SingleToy from './SingleToy';
 import Swal from 'sweetalert2';
+import { useLocation } from 'react-router-dom';
 
 const MyToy = () => {
 
     const { user } = useContext(AuthContext);
     const [toys, setToys] = useState([]);
+
+    const location = useLocation();
+
+    // Update the document title based on the current location
+    useEffect(() => {
+        document.title = `BabyToy | ${location.pathname === '/mytoy' ? 'MyToy' : ''}`;
+    }, [location]);
 
 
 
@@ -28,30 +36,30 @@ const MyToy = () => {
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
-        if(result.isConfirmed) {
-            fetch(`http://localhost:5000/addToy/${id}`, {
-                method: 'DELETE'
-            })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data);
-                    if (data.deletedCount > 0) {
-                        Swal.fire({
-                            position: 'top-center',
-                            icon: 'success',
-                            title: 'Items Deleted Successfully',
-                            showConfirmButton: false,
-                            timer: 1500
-                        })
-                        const remaining = toys.filter(toy => toy._id !== id);
-                        setToys(remaining);
-                    }
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/addToy/${id}`, {
+                    method: 'DELETE'
                 })
-        }
-    })
-}
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.deletedCount > 0) {
+                            Swal.fire({
+                                position: 'top-center',
+                                icon: 'success',
+                                title: 'Items Deleted Successfully',
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
+                            const remaining = toys.filter(toy => toy._id !== id);
+                            setToys(remaining);
+                        }
+                    })
+            }
+        })
+    }
 
-    
+
 
     return (
         <div>
