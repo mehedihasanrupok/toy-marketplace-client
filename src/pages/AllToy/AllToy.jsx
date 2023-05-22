@@ -14,6 +14,15 @@ const AllToy = () => {
         document.title = `BabyToy | ${location.pathname === '/allToy' ? 'All Toy' : ''}`;
     }, [location]);
 
+    const handleSearch = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const toyName = form.toyName.value;
+        
+        fetch(`http://localhost:5000/addToy?toyName=${toyName}`)
+            .then(res => res.json())
+            .then(data => setAllToys(data));
+    };
 
     const url = `http://localhost:5000/addToy`;
     useEffect(() => {
@@ -25,6 +34,17 @@ const AllToy = () => {
     return (
         <div>
             <h2 className='text-center text-5xl mb-3 mt-4'>All Toys</h2>
+            <form onSubmit={handleSearch}>
+                <div className="form-control">
+                    <label className="label">
+                        <span className="label-text">Enter Toy Name</span>
+                        <input type="text" name='toyName' placeholder='Toy Name' />
+                    </label>
+                    <label className="input-group">
+                        <input type="submit" value='search' className="input input-bordered" />              
+                    </label>
+                </div>
+            </form>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
                     <thead>

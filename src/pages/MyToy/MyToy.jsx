@@ -8,23 +8,29 @@ const MyToy = () => {
 
     const { user } = useContext(AuthContext);
     const [toys, setToys] = useState([]);
+    const [sortType, setSortType] = useState('Ascending');
 
     const location = useLocation();
 
     // Update the document title based on the current location
-    useEffect(() => {
-        document.title = `BabyToy | ${location.pathname === '/mytoy' ? 'MyToy' : ''}`;
-    }, [location]);
+   
 
 
 
-    const url = `http://localhost:5000/addToy?email=${user?.email}`;
+    const url = `http://localhost:5000/addToy?email=${user?.email}&type=${sortType}`;
 
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
             .then(data => setToys(data))
-    }, [url])
+    }, [url,toys])
+    console.log(sortType);
+
+
+    useEffect(() => {
+        document.title = `BabyToy | ${location.pathname === '/mytoy' ? 'MyToy' : ''}`;
+    }, [location]);
+
 
     const handleDelete = id => {
         Swal.fire({
@@ -64,6 +70,13 @@ const MyToy = () => {
     return (
         <div>
             <h2 className='text-center text-5xl mb-3 mt-4'>Your Added Toy: {toys.length}</h2>
+            <div className="flex items-center gap-3 mb-5">
+                <p>Sort by price: </p>
+                <select onChange={e => setSortType(e.target.value)} className='bg-gray-100 p-2 rounded '>
+                    <option value="Ascending">Ascending</option>
+                    <option value="Descending">Descending</option>
+                </select>
+            </div>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
                     {/* head */}
