@@ -3,6 +3,7 @@ import Banner from '../Banner/Banner';
 import Galary from '../Galary/Galary';
 import { useLocation } from 'react-router-dom';
 import Seller from '../Seller/Seller';
+import Shop from '../Shop/Shop';
 
 const Home = () => {
     const location = useLocation();
@@ -16,6 +17,7 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
+            <Shop></Shop>
             <Galary></Galary>
             <Seller></Seller>
         </div>
