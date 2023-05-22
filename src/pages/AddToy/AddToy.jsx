@@ -47,7 +47,7 @@ const AddToy = () => {
             Swal.fire({
                 position: 'top-center',
                 icon: 'success',
-                title: 'Data Insertion Success',
+                title: 'Toy Added Successfully',
                 showConfirmButton: false,
                 timer: 1500
               })
@@ -64,7 +64,7 @@ const AddToy = () => {
             <h2 className='text-center text-3xl mb-2'>Add A Toy </h2>
             <form onSubmit={handleAddToy}>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-6 bg-red-400'>
-                    <div className="form-control">
+                    <div className="ml-5 form-control">
                         <label className="label">
                             <span className="label-text">Toy Name</span>
                         </label>
@@ -76,7 +76,7 @@ const AddToy = () => {
                         </label>
                         <input type="text" name='seller' defaultValue={user?.displayName} className="input input-bordered" />
                     </div>
-                    <div className="form-control">
+                    <div className="ml-5 form-control">
                         <label className="label">
                             <span className="label-text">Email</span>
                         </label>
@@ -88,7 +88,7 @@ const AddToy = () => {
                         </label>
                         <input type="text" name='photo' className="input input-bordered" />
                     </div>
-                    <div className="form-control">
+                    <div className="ml-5 form-control">
                         <label className="label">
                             <span className="label-text">Price: </span>
                         </label>
@@ -100,7 +100,7 @@ const AddToy = () => {
                         </label>
                         <input type="text" name='rating' className="input input-bordered" />
                     </div>
-                    <div className="form-control">
+                    <div className="ml-5 form-control">
                         <label className="label">
                             <span className="label-text">Available Quantity: </span>
                         </label>
@@ -112,7 +112,7 @@ const AddToy = () => {
                         </label>
                         <input type="text" name='subCategory' className="input input-bordered" />
                     </div>
-                    <div className="form-control">
+                    <div className="ml-5 form-control max-w-full">
                         <label className="label">
                             <span className="label-text">Details</span>
                         </label>

@@ -20,7 +20,7 @@ const AToy = ({ toy }) => {
                 <td>{subCategory}</td>
                 <td>${price}</td>
                 <th>
-                    <Link><button className="btn btn-ghost btn-xs">View Details</button></Link>
+                    <Link to={`viewDetails/${toy._id}`}><button className="btn btn-ghost btn-xs">View Details</button></Link>
                 </th>
             </tr>
     );
