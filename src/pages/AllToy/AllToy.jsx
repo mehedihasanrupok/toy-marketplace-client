@@ -35,13 +35,12 @@ const AllToy = () => {
         <div>
             <h2 className='text-center text-5xl mb-3 mt-4'>All Toys</h2>
             <form onSubmit={handleSearch}>
-                <div className="form-control">
-                    <label className="label">
-                        <span className="label-text">Enter Toy Name</span>
-                        <input type="text" name='toyName' placeholder='Toy Name' />
+                <div className="form-control flex-row">
+                    <label className="label flex-row">
+                        <input className='ml-3' type="text" name='toyName' placeholder='Toy Name' />
                     </label>
-                    <label className="input-group">
-                        <input type="submit" value='search' className="input input-bordered" />              
+                    <label className="input-group mt-2">
+                        <input type="submit" value='search' className="input input-bordered rounded-full  hover:bg-blue-700 ml-4" />              
                     </label>
                 </div>
             </form>

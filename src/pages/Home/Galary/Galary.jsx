@@ -10,7 +10,7 @@ import img5 from '../../../../public/truck/truck-gf9f8133bd_640.jpg'
 
 const Galary = () => {
     return (
-        <div className='mt-5 mb-3'>
+        <div className='mt-5 mb-3' data-aos="fade-up">
             <h2 className='text-7xl font-bold text-black text-center mb-4'>Photo Gallery</h2>
             <div className="carousel w-full h-[600px] mb-8">
                 <div id="slide1" className="carousel-item relative w-full">
