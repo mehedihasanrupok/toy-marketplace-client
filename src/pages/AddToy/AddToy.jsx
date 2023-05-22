@@ -66,7 +66,7 @@ const AddToy = () => {
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-6 bg-red-400'>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Name</span>
+                            <span className="label-text">Toy Name</span>
                         </label>
                         <input type="text" placeholder="Name" name='name' className="input input-bordered" />
                     </div>
@@ -74,7 +74,7 @@ const AddToy = () => {
                         <label className="label">
                             <span className="label-text">Seller name</span>
                         </label>
-                        <input type="text" name='seller' className="input input-bordered" />
+                        <input type="text" name='seller' defaultValue={user?.displayName} className="input input-bordered" />
                     </div>
                     <div className="form-control">
                         <label className="label">

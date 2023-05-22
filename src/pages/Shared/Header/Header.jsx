@@ -25,7 +25,7 @@ const Header = () => {
                 {user && <Link to='/mytoy'>My Toys</Link>}
                 {user && <Link to='/addtoy'>Add Toys</Link>}
                 <Link to='/blogs'>Blogs</Link>
-                <Link to='/'>All Toy</Link>
+                <Link to='/allToy'>All Toy</Link>
             </div>
             <div className='p-4 flex justify-around space-x-2.5'>
                 {user?.email ? <>
