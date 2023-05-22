@@ -19,8 +19,16 @@ const MyToy = () => {
     }, [url])
 
     const handleDelete = id => {
-        const proceed = confirm('Are you sure that you want delete the Toy?');
-        if (proceed) {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+        if(result.isConfirmed) {
             fetch(`http://localhost:5000/addToy/${id}`, {
                 method: 'DELETE'
             })
@@ -40,7 +48,8 @@ const MyToy = () => {
                     }
                 })
         }
-    }
+    })
+}
 
     
 

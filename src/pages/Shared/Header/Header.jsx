@@ -29,7 +29,7 @@ const Header = () => {
             </div>
             <div className='p-4 flex justify-around space-x-2.5'>
                 {user?.email ? <>
-                    <button className='w-10 h-10 rounded'><img title={user.displayName} src={user?.photoURL} alt="" /></button>
+                    <button className='w-10 h-10 rounded-full'><img title={user.displayName} src={user?.photoURL} alt="" /></button>
                     <li><button onClick={handleLogOut}>Log out</button></li>
                 </> :
                     <li><Link to='/login'>Login</Link></li>
