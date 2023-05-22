@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const SingleToy = ({toy, handleDelete}) => {
-    const {_id, toyName, sellerName,email,img, rating,  quantity, subCategory,details,price } = toy;
+const SingleToy = ({ toy, handleDelete }) => {
+    const { _id, toyName, sellerName, email, img, rating, quantity, subCategory, details, price } = toy;
     return (
         <tr>
             <th>
@@ -26,14 +27,14 @@ const SingleToy = ({toy, handleDelete}) => {
             <td>{quantity}</td>
             <td>{subCategory}</td>
             <td>${price}</td>
-            {/* <th>
-                {
-                    status ==='confirm'? <span className='font-bold text-primary'>confirmed</span>  :
-                    <button onClick={() => handleConfirm(_id)} 
-                className="btn btn-ghost btn-xs">Confirm</button>}
-            </th> */}
+            <th>
+                <Link to={`updateToy/${toy._id}`}><button className="btn btn-ghost btn-xs">Update Toy</button></Link>
+            </th>
         </tr>
     );
 };
 
 export default SingleToy;
+
+//to={`/order/${orderId}/update`} cg
+//to={`/updateToy/${_id}`

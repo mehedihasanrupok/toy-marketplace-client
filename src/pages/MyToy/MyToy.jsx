@@ -8,6 +8,8 @@ const MyToy = () => {
     const { user } = useContext(AuthContext);
     const [toys, setToys] = useState([]);
 
+
+
     const url = `http://localhost:5000/addToy?email=${user?.email}`;
 
     useEffect(() => {
@@ -85,6 +87,7 @@ const MyToy = () => {
                             <th>Quantity</th>
                             <th>Category</th>
                             <th>Price</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
