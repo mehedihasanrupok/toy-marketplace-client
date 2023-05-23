@@ -28,7 +28,7 @@ const CategoryTabs = () => {
                     <Tab onClick={() => setActiveTab("Air")}>Air</Tab>
                 </TabList>
                 <TabPanel>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" data-aos="flip-left">
                         {
                             toyData.map(data => <SingleToyCard 
                                 key={data._id}
@@ -38,7 +38,7 @@ const CategoryTabs = () => {
                     </div>
                 </TabPanel>
                 <TabPanel>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" data-aos="flip-left">
                         {
                             toyData.map(data => <SingleToyCard 
                                 key={data._id}
@@ -48,7 +48,7 @@ const CategoryTabs = () => {
                     </div>
                 </TabPanel>
                 <TabPanel>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" data-aos="flip-left">
                         {
                             toyData.map(data => <SingleToyCard 
                                 key={data._id}
