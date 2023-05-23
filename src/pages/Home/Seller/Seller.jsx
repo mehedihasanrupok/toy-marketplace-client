@@ -3,7 +3,7 @@ import img from '../../../../public/company.jpg'
 
 const Seller = () => {
     return (
-        <div className='flex mb-5 mt-7'>
+        <div className='md:flex-col lg:flex-row  mb-5 mt-7' >
             <div>
                 <img src={img} alt="" />
             </div>

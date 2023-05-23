@@ -6,10 +6,10 @@ import SingleToyCard from './SingleToyCard.jsx';
 const CategoryTabs = () => {
     const [toys, setToys] = useState([]);
     const [toyData, setToyData] = useState([]);
-    const [activeTab, setActiveTab] = useState("dc");
+    const [activeTab, setActiveTab] = useState("Bus");
 
     useEffect(() => {
-        fetch('http://localhost:5000/addToy')
+        fetch('https://toy-marketplace-server-mehedihasanrupok.vercel.app/addToy')
             .then((res) => res.json())
             .then((data) => setToys(data));
     }, [activeTab]);
@@ -20,9 +20,9 @@ const CategoryTabs = () => {
     }, [activeTab, toys]);
 
     return (
-        <div className="mt-20">
+        <div className="mt-20 sm:flex-col">
             <Tabs>
-                <TabList className="text-center">
+                <TabList className="text-center bg-amber-300">
                     <Tab onClick={() => setActiveTab("Bus")}>Bus</Tab>
                     <Tab onClick={() => setActiveTab("Truck")}>Truck</Tab>
                     <Tab onClick={() => setActiveTab("Air")}>Air</Tab>
