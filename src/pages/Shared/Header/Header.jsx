@@ -15,12 +15,12 @@ const Header = () => {
     }
 
     return (
-        <div className='md:flex-col lg:flex-row justify-between font-bold items-center bg-red-300'>
+        <div className='md:flex justify-between font-bold items-center bg-red-300'>
             <div className='p-3'>
                 <img className='my-logo' src={logo} alt="" />
                 <h3 className='text-orange-500 italic font-bold text-3xl'>Baby Toy</h3>
             </div>
-            <div className='p-4 space-x-5 items-center md:flex-col lg:flex-row'>
+            <div className='p-4 space-x-5 items-center sm:flex-col lg:flex-row'>
                 <Link to='/'>Home</Link>
                 {user && <Link to='/mytoy'>My Toys</Link>}
                 {user && <Link to='/addtoy'>Add Toys</Link>}

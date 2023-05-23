@@ -19,12 +19,12 @@ const AllToy = () => {
         const form = event.target;
         const toyName = form.toyName.value;
         
-        fetch(`https://toy-marketplace-server-mehedihasanrupok.vercel.app/addToy?toyName=${toyName}`)
+        fetch(`https://toy-marketplace-server-sooty-seven.vercel.app/addToy?toyName=${toyName}`)
             .then(res => res.json())
             .then(data => setAllToys(data));
     };
 
-    const url = `https://toy-marketplace-server-mehedihasanrupok.vercel.app/addToy`;
+    const url = `https://toy-marketplace-server-sooty-seven.vercel.app/addToy`;
     useEffect(() => {
         fetch(url)
             .then(res => res.json())

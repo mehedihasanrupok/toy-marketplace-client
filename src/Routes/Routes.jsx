@@ -49,12 +49,12 @@ const router = createBrowserRouter([
             {
                 path: '/allToy/viewDetails/:id',
                 element: <PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`https://toy-marketplace-server-mehedihasanrupok.vercel.app/addToy/${params.id}`)
+                loader: ({ params }) => fetch(`https://toy-marketplace-server-sooty-seven.vercel.app/addToy/${params.id}`)
             },
             {
                 path: "mytoy/updateToy/:id",
                 element: <UpdatedToy></UpdatedToy>,
-                loader: ({ params }) => fetch(`https://toy-marketplace-server-mehedihasanrupok.vercel.app/addToy/${params.id}`)
+                loader: ({ params }) => fetch(`https://toy-marketplace-server-sooty-seven.vercel.app/addToy/${params.id}`)
             }
         ]
     },

@@ -6,7 +6,7 @@ const Shop = () => {
             <hr />
             <hr />
             <h2 className='text-5xl text-center text-orange-950'>Shop By Age</h2>
-            <div className='justify-around mt-10 mb-7 md:flex-col lg:flex-row'>
+            <div className='justify-around mt-10 mb-7 md:flex'>
                 <button className="btn btn-circle h-32 w-32 hover:bg-red-700">
                     <h2>Age 4 to 6</h2>
                 </button>

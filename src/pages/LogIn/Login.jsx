@@ -10,7 +10,7 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
-    const from = location.state?.from?.pathname || '/';
+    const from = location.state?.from?.pathname || '/mytoy';
 
     useEffect(() => {
         document.title = `BabyToy | ${location.pathname === '/login' ? 'Login' : ''}`;

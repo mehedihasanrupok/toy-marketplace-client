@@ -9,7 +9,7 @@ const CategoryTabs = () => {
     const [activeTab, setActiveTab] = useState("Bus");
 
     useEffect(() => {
-        fetch('https://toy-marketplace-server-mehedihasanrupok.vercel.app/addToy')
+        fetch('https://toy-marketplace-server-sooty-seven.vercel.app/addToy')
             .then((res) => res.json())
             .then((data) => setToys(data));
     }, [activeTab]);

@@ -21,7 +21,7 @@ const UpdatedToy = () => {
         console.log(updatedToy);
 
 
-        fetch(`https://toy-marketplace-server-mehedihasanrupok.vercel.app/addToy/${_id}`, {
+        fetch(`https://toy-marketplace-server-sooty-seven.vercel.app/addToy/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
